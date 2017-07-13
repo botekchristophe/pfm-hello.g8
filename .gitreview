@@ -1,0 +1,5 @@
+[gerrit]
+host=review.inocybe.com
+port=29418
+project=pfm/hello-world.git
+defaultbranch=master
