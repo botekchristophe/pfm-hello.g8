@@ -11,7 +11,11 @@ import play.api.libs.json._
 
 //TODO move this to the pfm-lib project in package com.inocybe.pfm.lib.service.inbound.v2.$name;format="Camel"$
 
-case class $name;format="Camel"$(id: UUID, name: String, description: String) extends BaseModel
+case class $name;format="Camel"$(id: UUID, name: String, description: String) extends BaseModel {
+
+  override def adminImmutableFields: Set[String] = Set("id")
+  override def userImmutableFields: Set[String] = adminImmutableFields
+}
 object $name;format="Camel"$ {
   implicit val format: Format[$name;format="Camel"$] = Json.format[$name;format="Camel"$]
 }
