@@ -31,7 +31,7 @@ trait $name;format="Camel"$Service extends Service {
   import Service._
   // @formatter:off
   named("$name;format="norm"$-service").withCalls(
-  restCall(Method.GET,    s"$apiSuffix/" + $name;format="norm"$ + "s/state",                    getState _),
+  restCall(Method.GET,    "/api/rest/v2/$name;format="norm"$s/state",                   getState _),
   restCall(Method.GET,    s"$apiSuffix/$name;format="norm"$s/ids",                      get$name;format="Camel"$Ids _),
   restCall(Method.GET,    s"$apiSuffix/$name;format="norm"$s/$name;format="norm"$/:id", read$name;format="Camel"$ _),
   restCall(Method.POST,   s"$apiSuffix/$name;format="norm"$s/$name;format="norm"$",     create$name;format="Camel"$ _),
