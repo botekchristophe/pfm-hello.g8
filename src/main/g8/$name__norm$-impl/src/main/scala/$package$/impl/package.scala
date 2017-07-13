@@ -16,5 +16,6 @@ package object impl {
   val oauth_secret: String = config.getString("service.oauth_secret")
 
   def basicEncode: (String, String) => String = { (username, password) =>
-    s"Basic ${Base64.getEncoder.encodeToString(s"$username:$password".getBytes(StandardCharsets.UTF_8))}"}
+    "Basic " + Base64.getEncoder.encodeToString((username + ":" + password).getBytes(StandardCharsets.UTF_8))
+  }
 }
