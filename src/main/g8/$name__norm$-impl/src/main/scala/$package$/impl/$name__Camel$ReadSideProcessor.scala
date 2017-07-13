@@ -4,6 +4,7 @@
 
 package $package$.impl
 
+import akka.Done
 import com.datastax.driver.core.PreparedStatement
 import $package$.api.$name;format="Camel"$Cassandra
 import $package$.impl.event._

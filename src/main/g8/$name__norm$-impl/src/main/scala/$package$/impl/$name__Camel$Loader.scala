@@ -1,16 +1,17 @@
+/**
+  * Copyright (C) 2017 Inocybe Technologies inc.
+  */
+
 package $package$.impl
 
-import com.inocybe.pfm.appmanager.impl.serialization.AppManagerSerializerRegistry
 import com.inocybe.pfm.lib.service.inbound.v2.authentication.AuthenticationService
 import com.inocybe.pfm.lib.service.inbound.v2.authorization.AuthorizationService
 import com.lightbend.lagom.scaladsl.persistence.cassandra.CassandraPersistenceComponents
 import com.lightbend.lagom.scaladsl.server._
-import com.lightbend.lagom.scaladsl.api.Descriptor
 import com.lightbend.lagom.scaladsl.client.ConfigurationServiceLocatorComponents
 import com.lightbend.lagom.scaladsl.devmode.LagomDevModeComponents
-import play.api.libs.ws.ahc.AhcWSComponents
 import $package$.api.$name;format="Camel"$Service
-import $package$.api.serialization._
+import $package$.impl.serialization._
 import com.lightbend.lagom.scaladsl.broker.kafka.LagomKafkaComponents
 import com.softwaremill.macwire._
 import play.api.libs.ws.ahc.AhcWSComponents
@@ -42,7 +43,7 @@ abstract class $name;format="Camel"$Application(context: LagomApplicationContext
 
   // Register the $name$ persistent entity
   persistentEntityRegistry.register(wire[$name;format="Camel"$Entity])
-  readSide.register(wire[AppReadSideProcessor])
+  readSide.register(wire[$name;format="Camel"$ReadSideProcessor])
   lazy val authenticationService: AuthenticationService = serviceClient.implement[AuthenticationService]
   lazy val authorizationService: AuthorizationService = serviceClient.implement[AuthorizationService]
 }

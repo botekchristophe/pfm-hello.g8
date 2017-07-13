@@ -2,7 +2,7 @@
   * Copyright (C) 2017 Inocybe Technologies inc.
   */
 
-package $package$
+package $package$.impl
 
 import java.util.UUID
 
@@ -13,9 +13,10 @@ import $package$.impl.event._
 import com.inocybe.pfm.lib.service.inbound.v2.shared.{ErrorResponse, ErrorResponses => ER}
 import com.lightbend.lagom.scaladsl.persistence.PersistentEntity
 import org.slf4j.LoggerFactory
+import cats.syntax.either._
 
 object $name;format="Camel"$Entity {
-  val id: String = $name;format="Camel"$ManagerEntity.getClass.toString
+  val id: String = $name;format="Camel"$Entity.getClass.toString
 }
 
 class $name;format="Camel"$Entity extends PersistentEntity {
@@ -30,18 +31,18 @@ class $name;format="Camel"$Entity extends PersistentEntity {
   /**
     * The initial state. This is used if there is no snapshotted state to be found.
     */
-  override def initialState: $name;format="Camel"$State = $name;format="Camel"$State(Set.empty[$name;format="Camel"$], System.currentTimeMillis.toString)
+  override def initialState: $name;format="Camel"$State = $name;format="Camel"$State(Set.empty[$name;format="Camel"$])
 
   var currentState: $name;format="Camel"$State = initialState
 
-  private val log = LoggerFactory.getLogger(classOf[$name;format="Camel"$ManagerEntity])
+  private val log = LoggerFactory.getLogger(classOf[$name;format="Camel"$Entity])
 
   /**
     * An entity can define different behaviours for different states, so the behaviour
     * is a function of the current state to a set of actions.
     */
   override def behavior: Behavior = {
-    case $name;format="Camel"$State(message, _) => Actions()
+    case $name;format="Camel"$State(message) => Actions()
       .onReadOnlyCommand[Get$name;format="Camel"$Ids.type, Set[UUID]] {
       readOnlyCommandHandler.asInstanceOf[ReadOnlyHandler[Set[UUID]]]
 

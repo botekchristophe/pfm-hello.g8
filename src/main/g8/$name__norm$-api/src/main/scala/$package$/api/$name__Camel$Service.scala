@@ -19,27 +19,27 @@ import play.api.{Environment, Mode}
 
 trait $name;format="Camel"$Service extends Service {
 
-  def getState                                : ServiceCall[NotUsed, Either[ErrorResponse, $name;format="Camel"$State]]
-  def get$name;format="Camel"$Ids             : ServiceCall[NotUsed, Either[ErrorResponse, Iterable[UUID]]]
-  def create$name;format="Camel"$             : ServiceCall[$name;format="Camel"$, Either[ErrorResponse, $name;format="Camel"$]]
-  def read$name;format="Camel"$(id: UUID)     : ServiceCall[NotUsed, Either[ErrorResponse, $name;format="Camel"$]]
-  def update$name;format="Camel"$(id: UUID)   : ServiceCall[$name;format="Camel"$, Either[ErrorResponse, $name;format="Camel"$]]
-  def delete$name;format="Camel"$(id: UUID)   : ServiceCall[NotUsed, Either[ErrorResponse, $name;format="Camel"$]]
+  def getState: ServiceCall[NotUsed, Either[ErrorResponse, $name;format="Camel"$State]]
+  def get$name;format="Camel"$Ids: ServiceCall[NotUsed, Either[ErrorResponse, Iterable[UUID]]]
+  def create$name;format="Camel"$: ServiceCall[$name;format="Camel"$, Either[ErrorResponse, $name;format="Camel"$]]
+  def read$name;format="Camel"$(id: UUID): ServiceCall[NotUsed, Either[ErrorResponse, $name;format="Camel"$]]
+  def update$name;format="Camel"$(id: UUID): ServiceCall[$name;format="Camel"$, Either[ErrorResponse, $name;format="Camel"$]]
+  def delete$name;format="Camel"$(id: UUID): ServiceCall[NotUsed, Either[ErrorResponse, $name;format="Camel"$]]
 
 
   override final def descriptor: Descriptor = {
   import Service._
   // @formatter:off
   named("$name;format="norm"$-service").withCalls(
-  restCall(Method.GET,    apiSuffix + "/$name;format="norm"$s/state",                   getState _),
-  restCall(Method.GET,    apiSuffix + "/$name;format="norm"$s/ids",                      get$name;format="Camel"$Ids _),
-  restCall(Method.GET,    apiSuffix + "/$name;format="norm"$s/$name;format="norm"$/:id", read$name;format="Camel"$ _),
-  restCall(Method.POST,   apiSuffix + "/$name;format="norm"$s/$name;format="norm"$",     create$name;format="Camel"$ _),
-  restCall(Method.PATCH,  apiSuffix + "/$name;format="norm"$s/$name;format="norm"$/:id", update$name;format="Camel"$ _),
-  restCall(Method.DELETE, apiSuffix + "/$name;format="norm"$s/$name;format="norm"$/:id", delete$name;format="Camel"$ _)
-  )
+    restCall(Method.GET,    apiSuffix + "/$name;format="norm"$s/state", getState _),
+    restCall(Method.GET,    apiSuffix + "/$name;format="norm"$s/ids", get$name;format="Camel"$Ids _),
+    restCall(Method.GET,    apiSuffix + "/$name;format="norm"$s/$name;format="norm"$/:id", read$name;format="Camel"$ _),
+    restCall(Method.POST,   apiSuffix + "/$name;format="norm"$s/$name;format="norm"$", create$name;format="Camel"$ _),
+    restCall(Method.PATCH,  apiSuffix + "/$name;format="norm"$s/$name;format="norm"$/:id", update$name;format="Camel"$ _),
+    restCall(Method.DELETE, apiSuffix + "/$name;format="norm"$s/$name;format="norm"$/:id", delete$name;format="Camel"$ _)
+    )
   .withAutoAcl(true)
   .withExceptionSerializer(new DefaultExceptionSerializer(Environment.simple(mode = Mode.Prod)))
   // @formatter:on
-}
+  }
 }

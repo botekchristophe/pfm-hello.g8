@@ -2,11 +2,12 @@
   * Copyright (C) 2017 Inocybe Technologies inc.
   */
 
-package com.inocybe.pfm.appmanager.impl.event
+package $package$.impl.event
 
 import $package$.api._
 import com.inocybe.pfm.lib.service.inbound.v2.shared.ErrorResponse
 import com.lightbend.lagom.scaladsl.persistence.{AggregateEvent, AggregateEventShards, AggregateEventTag, AggregateEventTagger}
+import play.api.libs.json.{Format, Json}
 
 trait $name;format="Camel"$Event extends AggregateEvent[$name;format="Camel"$Event] {
   override def aggregateTag: AggregateEventTagger[$name;format="Camel"$Event] = $name;format="Camel"$Event.Tag

@@ -6,8 +6,10 @@ package $package$.impl
 
 import java.util.UUID
 
+import akka.NotUsed
 import $package$.impl.command._
 import $package$.impl._
+import $package$.api._
 import com.inocybe.pfm.lib.service.RestService
 import com.inocybe.pfm.lib.service.inbound.v2.authentication.AuthenticationService
 import com.inocybe.pfm.lib.service.inbound.v2.authorization.AuthorizationService
