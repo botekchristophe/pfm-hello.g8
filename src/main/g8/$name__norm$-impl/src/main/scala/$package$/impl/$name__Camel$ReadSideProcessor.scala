@@ -36,7 +36,7 @@ class $name;format="Camel"$ReadSideProcessor(readSide: CassandraReadSide, sessio
   }
 
   private def createTable(): Future[Done] = {
-    log.debug(s"CREATE TABLE: ${$name;format="Camel"$Cassandra.createTable}")
+    log.debug(s"CREATE TABLE: " + $name;format="Camel"$Cassandra.createTable)
     for {
       _ <- session.executeCreateTable($name;format="Camel"$Cassandra.createTable)
     } yield Done
@@ -49,11 +49,11 @@ class $name;format="Camel"$ReadSideProcessor(readSide: CassandraReadSide, sessio
       update <- session.prepare($name;format="Camel"$Cassandra.update)
     } yield {
       insert$name;format="Camel"$Statement = insert
-      log.debug(s"INSERT: ${$name;format="Camel"$Cassandra.insert}")
+      log.debug(s"INSERT: " + $name;format="Camel"$Cassandra.insert)
       update$name;format="Camel"$Statement = update
-      log.debug(s"UPDATE: ${$name;format="Camel"$Cassandra.update}")
+      log.debug(s"UPDATE: " + $name;format="Camel"$Cassandra.update)
       delete$name;format="Camel"$Statement = delete
-      log.debug(s"DELETE: ${$name;format="Camel"$Cassandra.delete}")
+      log.debug(s"DELETE: " + $name;format="Camel"$Cassandra.delete)
       Done
     }
   }
