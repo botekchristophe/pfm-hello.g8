@@ -2,7 +2,7 @@
   * Copyright (C) 2017 Inocybe Technologies inc.
   */
 
-package com.inocybe.pfm.appmanager
+package $package$
 
 import java.nio.charset.StandardCharsets
 import java.util.Base64

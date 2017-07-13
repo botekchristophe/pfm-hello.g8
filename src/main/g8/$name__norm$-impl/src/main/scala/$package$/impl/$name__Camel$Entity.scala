@@ -87,7 +87,7 @@ class $name;format="Camel"$Entity extends PersistentEntity {
         { r => ctx.thenPersist($name;format="Camel"$Created(r)) {_ => ctx.reply(response) }})
 
     case (Update$name;format="Camel"$(id, $name;format="norm"$), ctx, state) =>
-      val response = state.apps.find(_.id == id)
+      val response = state.$name;format="norm"$s.find(_.id == id)
         .toRight(ER.NotFound("$name;format="Camel"$ not found."))
       response.fold(
         { e => ctx.thenPersist(ErrorEvent(e)) {_ => ctx.reply(response) }},
