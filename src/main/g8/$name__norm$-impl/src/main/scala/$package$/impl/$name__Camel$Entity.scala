@@ -70,7 +70,7 @@ class $name;format="Camel"$Entity extends PersistentEntity {
 
     case (Get$name;format="Camel"$($name;format="norm"$Id), ctx, state) =>
       val $name;format="norm"$ = state.$name;format="norm"$s.find(_.id == $name;format="norm"$Id)
-        .toRight(ER.NotFound(s"$name;format="Camel"$ not found with id=$$name;format="norm"$Id"))
+        .toRight(ER.NotFound($name;format="Camel"$ +" not found with id=" + $name;format="norm"$Id))
       ctx.reply($name;format="norm"$)
   }
 
@@ -120,7 +120,7 @@ class $name;format="Camel"$Entity extends PersistentEntity {
       state.copy($name;format="norm"$s = $name;format="norm"$s + a)
 
     case (ErrorEvent(e), _) =>
-      log.info(s"Error event: ${e.toString}")
+      log.info(e.toString)
       currentState
   }
 }
