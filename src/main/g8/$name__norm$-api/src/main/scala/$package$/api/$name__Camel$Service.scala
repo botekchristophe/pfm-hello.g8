@@ -8,9 +8,12 @@ import java.util.UUID
 
 import akka.NotUsed
 import com.inocybe.pfm.lib.serialization.JsonFormats._
+import com.inocybe.pfm.lib.service.inbound.v2.apiSuffix
 import com.inocybe.pfm.lib.service.inbound.v2.shared.ErrorResponse
 import com.lightbend.lagom.scaladsl.api.deser.DefaultExceptionSerializer
+import com.lightbend.lagom.scaladsl.api.transport.Method
 import com.lightbend.lagom.scaladsl.api.{Descriptor, Service, ServiceCall}
+import play.api.{Environment, Mode}
 
 //TODO move this to the pfm-lib project in package com.inocybe.pfm.lib.service.inbound.v2.$name;format="Camel"$
 
